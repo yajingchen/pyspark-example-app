@@ -10,7 +10,7 @@ def count_per_skill(df):
     skills_count = (df.select(
         col("name"),
         explode(col("technical_skills")).alias("skill_name")
-    ).distinct().groupBy("skill_name").agg({"name": "count"}))
+    ).distinct().groupBy("skill_name").agg({"name": "count"})).withColumnRenamed("count(name)", "count")
 
     return skills_count
 

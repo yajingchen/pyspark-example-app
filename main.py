@@ -9,4 +9,4 @@ if __name__ == '__main__':
 
     skills_count_df = count_per_skill(input_df)
 
-    skills_count_df.write.csv("output_data")
+    skills_count_df.coalesce(1).write.csv("output_data")
