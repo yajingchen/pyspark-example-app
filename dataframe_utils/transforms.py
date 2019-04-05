@@ -1,4 +1,4 @@
-from pyspark.sql.functions import explode
+from pyspark.sql.functions import col, explode
 
 
 def count_per_skill(df):
@@ -10,7 +10,7 @@ def count_per_skill(df):
     skills_count = (df.select(
         col("name"),
         explode(col("technical_skills")).alias("skill_name")
-    ).groupBy("skill_name").agg({"name": "count"}))
+    ).distinct().groupBy("skill_name").agg({"name": "count"}))
 
     return skills_count
 

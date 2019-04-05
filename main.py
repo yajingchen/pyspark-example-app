@@ -1,5 +1,4 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import explode, col
 
 from dataframe_utils.transforms import count_per_skill
 
